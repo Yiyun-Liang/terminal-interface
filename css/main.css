@@ -1,0 +1,24 @@
+@import url(https://fonts.googleapis.com/css?family=Raleway:400,500);
+
+/* Color Hunt - http://colorhunt.co/c/62456 */
+body {
+  background-color: black;
+  color: #FFF59D;
+  font-size: 1.2em;
+  font-family: "Roboto Mono", monospace;
+  text-align: left;
+}
+
+
+#terminal-input {
+	/*display: none;*/
+}
+
+#terminal-prompt {
+	background-color: #000;
+	border: none;
+	color: #FFF59D;
+
+	outline: none;
+	margin-bottom: 300px;
+}
