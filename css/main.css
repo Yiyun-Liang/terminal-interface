@@ -9,16 +9,19 @@ body {
   text-align: left;
 }
 
+section {
+  margin: 8% auto auto auto;
+  width: 50%;
+}
 
 #terminal-input {
 	/*display: none;*/
 }
 
 #terminal-prompt {
-	background-color: #000;
+	background-color: #fff;
 	border: none;
 	color: #FFF59D;
-
 	outline: none;
 	margin-bottom: 300px;
 }
