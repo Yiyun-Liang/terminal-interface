@@ -4,22 +4,38 @@ $(document).ready(function(){
 
   var opening = "Wake up...",
       cmdNotFound = "Sorry, this command is not found. Don't worry, just try again.",
-      about = "My name is Isa Liang, and I am studying Software Engineering at the University of Waterloo",
+      about = "My name is Isa Liang, and I am studying Software Engineering at the University of Waterloo. I am absolutely passionate about coding and future technology.",
       list = "For a list of available commands, type 'help'",
-      availableCmds = "Available commands: [about] [skills] [experience] [contact] [clear]";
+      availableCmds = "Available commands: [about] [skills] [experience] [contact] [social] [clear]",
+      email = "My email: isaliangyiyun@hotmail.com",
+      skills = "Proficient in Java, JavaScript; Familiar with Scala, Python",
+      shortBio = "You can view my resume";
 
-  var history = [];
+  function generateSocialAccts(){
+    var space = ', ';
+    var output = $("<p id='social'></p>");
+    var githubLink = $('<a>Github</a>').attr({
+			'href': 'https://github.com/Yiyun-Liang',
+			'target': '_blank'
+		});
 
-  function generateSkills(){
-    var skills = $('');
-  }
+		var twitterLink = $('<a>Twitter</a>').attr({
+			'href': 'https://twitter.com/yiyunliang',
+			'target': '_blank'
+		});
 
-  function generateContacts(){
+    var linkedInLink = $('<a>LinkedIn</a>').attr({
+			'href': 'https://ca.linkedin.com/in/yiyunliang',
+			'target': '_blank'
+		});
 
-  }
+    output.append(githubLink);
+    output.append(space);
+    output.append(twitterLink);
+    output.append(space);
+    output.append(linkedInLink);
 
-  function generateExperience(){
-
+    return output;
   }
 
   function clearTerminal(){
@@ -53,7 +69,7 @@ $(document).ready(function(){
   }
 
   function displayHTML(html){
-    var $out = $("<p class='terminal-output'></p>").append(html).appendTo($terminal);
+    var $out = $("<p class='terminal-output'></p>").text('> ').append(html).appendTo($terminal);
     return $out;
   }
 
@@ -66,15 +82,17 @@ $(document).ready(function(){
         output = display(about, false, typeSpeedFastInms);
         break;
       case 'skills':
-        var skillHTML = generateSkills();
-        output = displayHTML(skillHTML);
+        output = display(skills, false, typeSpeedFastInms);
         break;
       case 'experience':
-        var expHTML = generateExperienceHTML();
-        output = displayHTML(expHTML);
+        output = display(shortBio, false, typeSpeedFastInms);
         break;
       case 'contact':
-
+        output = display(email, true, typeSpeedFastInms);
+        break;
+      case 'social':
+        var socialHTML = generateSocialAccts();
+        output = displayHTML(socialHTML);
         break;
       case 'help':
         output = diaplay(listCommands, true, typeSpeedFastInms);
