@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
   var $terminal = $("#terminal");
 
@@ -113,13 +112,13 @@ $(document).ready(function(){
 
     setTimeout(function(){
       display(list, true, typeSpeedFastInms);
-    }, 3500);
+    }, 2000);
 
     setTimeout(function() {
 			$("#terminal-prompt").html('&#9612;');
 			$("#terminal-input").show();
 			$("#terminal-prompt").focus();
-		}, 6500);
+		}, 5000);
   }
 
   $("body").on('click', function(){

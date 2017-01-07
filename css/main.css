@@ -15,11 +15,11 @@ section {
 }
 
 #terminal-input {
-	/*display: none;*/
+	display: none;
 }
 
 #terminal-prompt {
-	background-color: #fff;
+	background-color: #000;
 	border: none;
 	color: #FFF59D;
 	outline: none;
