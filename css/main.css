@@ -4,14 +4,20 @@
 body {
   background-color: black;
   color: #FFF59D;
-  font-size: 1.2em;
+  font-size: 2em;
   font-family: "Roboto Mono", monospace;
   text-align: left;
 }
 
 section {
-  margin: 8% auto auto auto;
+  margin: 0 auto 2%;
   width: 50%;
+}
+
+#terminal {
+	margin: 0 auto 2%;
+  width: 50%;
+	margin-top: 100px;
 }
 
 #terminal-input {

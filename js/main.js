@@ -74,34 +74,47 @@ $(document).ready(function(){
 
   function handleInput(){
     var value = $("#terminal-prompt").val().toLowerCase();
-    var output = '';
 
     switch (value) {
       case 'about':
-        output = display(about, false, typeSpeedFastInms);
+        display(about, false, typeSpeedFastInms);
         break;
       case 'skills':
-        output = display(skills, false, typeSpeedFastInms);
+        display(skills, false, typeSpeedFastInms);
         break;
       case 'experience':
-        output = display(shortBio, false, typeSpeedFastInms);
+        display(shortBio, false, typeSpeedFastInms);
         break;
       case 'contact':
-        output = display(email, true, typeSpeedFastInms);
+        display(email, true, typeSpeedFastInms);
         break;
       case 'social':
         var socialHTML = generateSocialAccts();
-        output = displayHTML(socialHTML);
+        displayHTML(socialHTML);
         break;
       case 'help':
-        output = diaplay(listCommands, true, typeSpeedFastInms);
+        display(availableCmds, true, typeSpeedFastInms);
         break;
       case 'clear':
         clearTerminal();
-        output = display(list, true, typeSpeedFastInms);
+        display(list, true, typeSpeedFastInms);
+        break;
+      case 'fuck':
+        display('Bang ', true, typeSpeedFastInms);
+        display('Bang ', true, typeSpeedFastInms);
+        display('Bang ', true, typeSpeedFastInms);
+        display('!!!', true, typeSpeedFastInms);
+        
+        setTimeout(function(){
+          display(availableCmds, true, typeSpeedFastInms);
+        }, 3000);
         break;
       default:
+        display(cmdNotFound, true, typeSpeedFastInms);
 
+        setTimeout(function(){
+          display(availableCmds, true, typeSpeedFastInms);
+        }, 4500);
     }
   }
 
@@ -124,9 +137,50 @@ $(document).ready(function(){
   $("body").on('click', function(){
     $("termianl-prompt").focus();
   });
-  $('#term-prompt').on('click', function() {
-		$('#term-prompt').focus();
+  $('#terminal-prompt').on('click', function() {
+		$('#terminal-prompt').focus();
 	});
+
+  var history = [];
+  var historyIndex = 0;
+  var historyHighlighted;
+
+  $('#terminal-prompt').on('keydown', function(e){
+    var enterKey = 13;
+    var arrowUpKey = 38;
+    var arrowDownKey = 40;
+
+    if(e.which == enterKey){
+      if($('#terminal-prompt').val() != history[history.length-1]){
+        // a new input from the user
+        handleInput();
+      }
+      if($('#terminal-prompt').val() !== ""){
+        history.push($('#terminal-prompt').val());
+      }
+
+      historyIndex++;
+      $('#terminal-prompt').val("");
+    }
+
+    if(e.which == arrowUpKey){
+      if(historyIndex > 0){
+        historyIndex--;
+      }
+
+      historyHighlighted = history[historyIndex];
+			$('#terminal-prompt').val(historyHighlighted);
+    }
+
+    if(e.which == arrowDownKey){
+      if(historyIndex < history.length){
+        historyIndex++;
+      }
+
+      historyHighlighted = history[historyIndex];
+			$('#terminal-prompt').val(historyHighlighted);
+    }
+  });
 
 
   init();
