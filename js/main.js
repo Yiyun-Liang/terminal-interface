@@ -1,7 +1,10 @@
-$(document).ready(function(){
-  var $terminal = $("#terminal");
+// TODO If possible make it so that available commands element is created right after the wrong command is entered.
 
-  var opening = "Wake up...",
+
+$(document).ready(function(){
+  let $terminal = $("#terminal");
+
+  let opening = "Wake up, Jarvis...",
       cmdNotFound = "Sorry, this command is not found. Don't worry, just try again.",
       about = "My name is Isa Liang, and I am studying Software Engineering at the University of Waterloo. I am absolutely passionate about coding and future technology.",
       list = "For a list of available commands, type 'help'",
@@ -11,9 +14,9 @@ $(document).ready(function(){
       shortBio = "You can view my resume";
 
   function generateSocialAccts(){
-    var space = ', ';
-    var output = $("<p id='social'></p>");
-    var githubLink = $('<a>Github</a>').attr({
+    let space = ', ';
+    let output = $("<p id='social'></p>");
+    let githubLink = $('<a>Github</a>').attr({
 			'href': 'https://github.com/Yiyun-Liang',
 			'target': '_blank'
 		});
@@ -68,7 +71,7 @@ $(document).ready(function(){
   }
 
   function displayHTML(html){
-    var $out = $("<p class='terminal-output'></p>").text('> ').append(html).appendTo($terminal);
+    var $out = $("<p class='terminal-output'></p>").append(html).appendTo($terminal);
     return $out;
   }
 
@@ -104,7 +107,7 @@ $(document).ready(function(){
         display('Bang ', true, typeSpeedFastInms);
         display('Bang ', true, typeSpeedFastInms);
         display('!!!', true, typeSpeedFastInms);
-        
+
         setTimeout(function(){
           display(availableCmds, true, typeSpeedFastInms);
         }, 3000);
