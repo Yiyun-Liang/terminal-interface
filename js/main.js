@@ -1,6 +1,5 @@
 // TODO If possible make it so that available commands element is created right after the wrong command is entered.
 
-
 $(document).ready(function(){
   let $terminal = $("#terminal");
 
