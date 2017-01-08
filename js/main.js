@@ -21,12 +21,12 @@ $(document).ready(function(){
 			'target': '_blank'
 		});
 
-		var twitterLink = $('<a>Twitter</a>').attr({
+		let twitterLink = $('<a>Twitter</a>').attr({
 			'href': 'https://twitter.com/yiyunliang',
 			'target': '_blank'
 		});
 
-    var linkedInLink = $('<a>LinkedIn</a>').attr({
+    let linkedInLink = $('<a>LinkedIn</a>').attr({
 			'href': 'https://ca.linkedin.com/in/yiyunliang',
 			'target': '_blank'
 		});
@@ -44,8 +44,8 @@ $(document).ready(function(){
     $(".terminal-output").remove();
   }
 
-	var typeSpeedSlowInms = 75;
-	var typeSpeedFastInms = 60;
+	let typeSpeedSlowInms = 75;
+	let typeSpeedFastInms = 60;
 
 	var autotype = function(out, text, ptr, interval) {
 		if (ptr < text.length) {
